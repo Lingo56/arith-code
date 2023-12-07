@@ -1,4 +1,4 @@
-# wav-compress
+# Arithmetic Coding
 
 An Electron application with React
 
