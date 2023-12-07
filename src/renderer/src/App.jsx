@@ -22,7 +22,7 @@ function App() {
       }}
       className="App"
     >
-      <div style={{ textAlignLast: 'center', margin: 'auto' }}>
+      <div style={{ textAlignLast: 'center', margin: 'auto', height: '150px' }}>
         <h1>Arithmetic Coding</h1>
 
         {codeValue && <ArithmeticCode codeText={codeValue} />}

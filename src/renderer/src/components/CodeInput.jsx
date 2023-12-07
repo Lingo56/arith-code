@@ -17,7 +17,7 @@ const CodeInput = ({ onButtonClick }) => {
     const isValidInput = /^[ab]+$/.test(inputValue)
 
     if (inputValue.length > 16) {
-      setErrorText('String has an invalid length (should be between 2 and 16)')
+      setErrorText('String has an invalid length (16 max)')
       return
     }
 
@@ -36,9 +36,9 @@ const CodeInput = ({ onButtonClick }) => {
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Enter a sequence of As and Bs (between 2 and 16 long)"
+          placeholder="Enter a sequence of As and Bs (16 max)"
           size="50"
-          style={{ width: '350px', padding: '0px 6px' }}
+          style={{ width: '350px', padding: '0px 6px', marginRight: '3px' }}
         />
         <button style={{ padding: '0px 6px' }} onClick={handleButtonClick}>
           Encode
