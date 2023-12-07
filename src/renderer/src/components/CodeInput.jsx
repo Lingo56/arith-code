@@ -3,10 +3,13 @@ import PropTypes from 'prop-types'
 
 const CodeInput = ({ onButtonClick }) => {
   const [inputValue, setInputValue] = useState('')
+  const [errorText, setErrorText] = useState('')
 
   // Event handler for input change
   const handleInputChange = (event) => {
     setInputValue(event.target.value)
+    // Clear error text when the input changes
+    setErrorText('')
   }
 
   // Event handler for button click
@@ -14,32 +17,37 @@ const CodeInput = ({ onButtonClick }) => {
     const isValidInput = /^[ab]+$/.test(inputValue)
 
     if (inputValue.length > 16) {
-      console.log('String invalid length')
+      setErrorText('String has an invalid length (should be between 2 and 16)')
       return
     }
 
     if (!isValidInput) {
-      console.log('String contains characters other than A or B')
+      setErrorText('String contains characters other than A or B')
       return
     }
 
-    onButtonClick(inputValue)
+    onButtonClick(inputValue.toUpperCase())
   }
 
   return (
     <div>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Enter a sequence of As and Bs (between 2 and 16 long)"
-        size="50"
-        style={{ width: '350px', padding: '0px 6px' }}
-      />
+      <div>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Enter a sequence of As and Bs (between 2 and 16 long)"
+          size="50"
+          style={{ width: '350px', padding: '0px 6px' }}
+        />
+        <button style={{ padding: '0px 6px' }} onClick={handleButtonClick}>
+          Encode
+        </button>
+      </div>
 
-      <button style={{ padding: '0px 6px' }} onClick={handleButtonClick}>
-        Encode
-      </button>
+      <div style={{ paddingTop: '5px' }}>
+        {errorText && <p style={{ color: 'red', marginBottom: '10px' }}>{errorText}</p>}
+      </div>
     </div>
   )
 }

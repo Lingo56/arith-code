@@ -11,8 +11,6 @@ function App() {
     setCodeValue(value)
   }
 
-  // TODO: Move text input into separate component (use the string once button is pressed)
-  // TODO: Set up arithmetic coding with string
   return (
     <div
       style={{
@@ -29,7 +27,7 @@ function App() {
 
         {codeValue && <ArithmeticCode codeText={codeValue} />}
 
-        <div style={{ paddingTop: '20px' }}>
+        <div style={{ paddingTop: '10px' }}>
           <CodeInput onButtonClick={handleCodeValue} />
         </div>
       </div>
