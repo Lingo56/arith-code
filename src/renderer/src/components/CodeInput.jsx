@@ -14,7 +14,7 @@ const CodeInput = ({ onButtonClick }) => {
 
   // Event handler for button click
   const handleButtonClick = () => {
-    const isValidInput = /^[ab]+$/.test(inputValue)
+    const isValidInput = /^[AB]+$/.test(inputValue.toUpperCase())
 
     if (inputValue.length > 16) {
       setErrorText('String has an invalid length (16 max)')

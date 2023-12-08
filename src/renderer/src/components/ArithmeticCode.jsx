@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 const ArithmeticCode = ({ codeText }) => {
-  const [highDecodedValue, setHighDecodedValue] = useState(0)
-  const [lowDecodedValue, setLowDecodedValue] = useState(0)
+  const [highEncodedValue, setHighEncodedValue] = useState(0)
+  const [lowEncodedValue, setLowEncodedValue] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,8 +11,8 @@ const ArithmeticCode = ({ codeText }) => {
         const ac = new ArithmeticCoding()
         const { low, high } = ac.encode(codeText)
 
-        setHighDecodedValue(high)
-        setLowDecodedValue(low)
+        setHighEncodedValue(high)
+        setLowEncodedValue(low)
       } catch (error) {
         console.error('Error fetching code sequence:', error)
       }
@@ -25,8 +25,8 @@ const ArithmeticCode = ({ codeText }) => {
     <div>
       <div style={{ margin: '10px', verticalAlign: 'top' }}>
         <p>Code: {codeText}</p>
-        <p>High Decoded Value: {highDecodedValue}</p>
-        <p>Low Decoded Value: {lowDecodedValue}</p>
+        <p>High Encoded Value: {highEncodedValue}</p>
+        <p>Low Encoded Value: {lowEncodedValue}</p>
       </div>
     </div>
   )
